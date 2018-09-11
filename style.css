@@ -1,0 +1,121 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  animation-fill-mode: forwards;
+}
+
+body {
+  background-color: #141414;
+  position: relative;
+  font-family: 'Libre Baskerville', serif;
+  overflow: hidden;
+  font: 14pt 'Roboto Condensed', sans-serif;
+  color: #fff;
+}
+
+.par {
+  z-index: -2;
+  width: 100vw;
+  height: 150vh;
+  position: absolute;
+  bottom: -45vh;
+  right: -5vw;
+  background: url("images/par/new3_shadow.png") no-repeat bottom right;
+  background-size: contain;
+
+  animation: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 parLoading;
+}
+
+@keyframes parLoading {
+  from {
+    opacity: 0;
+    transform: translateX(15vw);
+  }
+  25% {    
+    opacity: 0.75;
+    transform: translateX(5vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.info_wrapper {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  display: flex;
+
+  flex-direction: column-reverse;
+  
+  justify-content: space-between;
+  align-items: baseline;
+  position: absolute;
+  max-width: 30vw;
+}
+
+.info {
+  padding: 1rem;
+}
+
+@keyframes pLoading {
+  from {
+    transform: translateX(-15vw);
+  }
+  25% {    
+    opacity: 0.75;
+    transform: translateX(-5vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+p {
+  opacity: 0;
+  animation: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 parLoading forwards;
+}
+
+a:link, a:visited {
+  color: #f7b8fe;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f453fd;
+}
+
+/* ---- reset ---- */
+
+canvas {
+  display: block;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  z-index: -3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #141414;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  opacity: 0;
+  transition: opacity 7s ease-out;
+}
+
+.particles-js-load-start {
+  opacity: 1 !important;
+}
