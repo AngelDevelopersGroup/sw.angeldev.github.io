@@ -26,25 +26,26 @@ body {
   height: 150vh;
   position: absolute;
   bottom: -45vh;
-  right: -5vw;
-  background: url("images/par/new3_shadow.png") no-repeat bottom right;
+  left: 0vw;
+  right: 0vw;
+  background: url("images/par/new3_shadow.png") no-repeat center center;
   background-size: contain;
 
-  animation: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 parLoading;
+  animation: 25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 parLoading forwards;
 }
 
 @keyframes parLoading {
   from {
     opacity: 0;
-    transform: translateX(15vw);
+    transform: scale(3);
   }
-  25% {    
+  15% {    
     opacity: 0.75;
-    transform: translateX(5vw);
+    transform: scale(1.3);
   }
   to {
-    opacity: 1;
-    transform: translateX(0);
+    opacity: 0.90;
+    transform: scale(1);
   }
 }
 
@@ -58,31 +59,43 @@ body {
   
   justify-content: space-between;
   align-items: baseline;
-  position: absolute;
-  max-width: 30vw;
 }
 
-.info {
+.link {
   padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: space-evenly;
 }
 
-@keyframes pLoading {
-  from {
-    transform: translateX(-15vw);
-  }
-  25% {    
-    opacity: 0.75;
-    transform: translateX(-5vw);
-  }
+.link a {
+  opacity: 0;
+  transform: translateY(5vh);
+
+  animation-duration: 1s;
+  animation-name: aLoading;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+}
+
+.link a:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.link a:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.link a:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes aLoading {
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
-}
-
-p {
-  opacity: 0;
-  animation: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 parLoading forwards;
 }
 
 a:link, a:visited {
