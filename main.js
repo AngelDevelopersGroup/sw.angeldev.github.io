@@ -148,6 +148,7 @@ function main() {
 		const stella = document.querySelector('.par');		
 		stella.classList.remove('par-hide');	
 		stella.classList.add('par-show');
+		stella.style['display'] = 'block';
 	};
 
 	const ft = function try_play () {
