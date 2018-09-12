@@ -34,6 +34,7 @@ body {
   right: 0vw;
   background: url("images/par/new3_shadow.png") no-repeat center center;
   background-size: contain;
+  opacity: 0;
 }
 
 .par-show {
