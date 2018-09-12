@@ -133,10 +133,25 @@ function main() {
 	particles.classList.add("particles-js-load-start");
 
 	const audio = document.querySelector("#bgm");
+	audio.onended = function() {
+		const stella = document.querySelector('.par');
+		stella.classList.remove('par-show');				
+		stella.classList.add('par-hide');		
+
+		stella.onanimationend = function(e) {
+			audio.currentTime = 0;		
+			audio.play();	
+		}
+	};
+
+	audio.onplay = function(e) {
+		const stella = document.querySelector('.par');		
+		stella.classList.remove('par-hide');	
+		stella.classList.add('par-show');
+	};
 
 	const ft = function try_play () {
-		audio.play().catch(() => {
-			console.log('try');
+		audio.play().catch(function() {
 			setTimeout(ft, 1000);
 		});
 	}
